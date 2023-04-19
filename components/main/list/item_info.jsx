@@ -4,6 +4,8 @@ import IconE from 'react-native-vector-icons/Ionicons';
 import IconA from 'react-native-vector-icons/AntDesign';
 import YoutubePlayer from 'react-native-youtube-iframe';
 import styles from "./item_info_style";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const ItemInfo = ({ navigation, route }) => {
     const [saved, setSaved] = useState(false);
@@ -12,7 +14,17 @@ const ItemInfo = ({ navigation, route }) => {
     const homeIcon = <IconE style={ styles.backButton } name="ios-arrow-back" size={ 32 } />;
     const starIcon = <IconA style={ saved ? styles.savedColor : styles.backButton } name="star" size={ 25 } />;
 
+    storeData = async (key, item) => {
+        try {
+            await AsyncStorage.setItem(key, String(item));
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     saveAnime = () => {
+        storeData(anime.title_english, anime)
+
         const toggled = !saved;
         setSaved(toggled);
     }

@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 
     text: {
         color: "#FFFFFF",
-    }
+    },
 });
 
 export default styles;
