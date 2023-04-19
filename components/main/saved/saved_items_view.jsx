@@ -1,51 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Pressable } from "react-native";
+import { View, Text, FlatList, Pressable } from "react-native";
 import styles from './saved_items_view_style';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getAnimeList } from '../../assets/js/anime_api';
+import ListItem from "../list/list_item";
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SavedView = () => {
-    const [data, setData] = useState([]);
-    const [anime, setAnime] = useState([]);
+    const [type, setType] = useState('tv');
+    const [filter, setFilter] = useState('airing');
+    const [response, setResponse] = useState([]);
 
-    retrieveKeys = async () => {
-        try {
-          const value = await AsyncStorage.getAllKeys();
-          if (value !== null) {
-            setData(value)
-            console.log(value);
-          }
-        } catch (error) {
-          console.log(error);
-        }
-    };
+    useEffect(() => {
+        getAnime(type, filter);
+    }, []);
 
-    retrieveAnime = async (name) => {
-        try {
-          const value = await AsyncStorage.getItem(name);
-          if (value !== null) {
-            setAnime(value)
-            console.log(value);
-          }
-        } catch (error) {
-          console.log(error);
-        }
-    };
+    getAnime = (value, filter) => {
+        getAnimeList(value, filter)
+            .then(animeList => {
+                setResponse(animeList);
+            });
+    }
 
     return(
         <View style={ styles.container }>
-            <Text style={ styles.text }>This is the Saved Items component</Text>
-            <Text style={ styles.text }>{ data ? data : null }</Text>
-            <Text style={ styles.text }>{ anime ? anime : null }</Text>
+            <Text style={ styles.text }>Saved Anime</Text>
 
-            {/* <Pressable 
-                onPress={ retrieveKeys } >
-                    <Text style={ styles.text } >TEST STORAGE BY CLICKING THIS</Text>
-            </Pressable>
-
-            <Pressable 
-                onPress={ retrieveAnime } >
-                    <Text style={ styles.text } >TEST GETTING ANIME CLICKING THIS</Text>
-            </Pressable> */}
+            <FlatList
+                style={ styles.list }
+                data={ response }
+                keyExtractor={item => item.mal_id}
+                renderItem={({ item }) => (
+                    <ListItem item={ item } />
+                )}
+            />
         </View>
     )
 }

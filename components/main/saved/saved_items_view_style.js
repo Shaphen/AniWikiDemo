@@ -12,6 +12,21 @@ const styles = StyleSheet.create({
 
     text: {
         color: "#FFFFFF",
+        marginTop: 20,
+        marginBottom: 20,
+        fontSize: 30,
+    },
+
+    animeListContainer: {
+        textAlign: "center",
+        width: "100%",
+        height: "100%",
+        marginBottom: 150,
+    },
+
+    list: {
+        width: "100%",
+        // marginTop: 10,
     },
 });
 
