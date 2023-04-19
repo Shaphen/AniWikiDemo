@@ -15,18 +15,18 @@ const styles = StyleSheet.create({
     },
 
     profileLine: {
-        top: 140,
+        top: 130,
         position: "absolute",
         backgroundColor: "#7a63b6",
         width: 2,
-        height: 50,
+        height: 55,
     },
 
     profilePicture: {
         flex: 1,
         zIndex: 10,
         width: 120,
-        height: 100,
+        // height: 100,
         marginTop: 25,
         borderRadius: 65,
         backgroundColor: "#FFFFFF",
@@ -38,16 +38,44 @@ const styles = StyleSheet.create({
         flex: 4,
         width: "90%",
         backgroundColor: "#1a1c1e",
-        marginVertical: 30,
+        marginVertical: 40,
         borderColor: "#7a63b6",
         borderWidth: 2,
+        paddingHorizontal: 20,
+        paddingBottom: 20,
         justifyContent: "center",
-        alignItems: "center",
+    },
+
+    nameContainer: {
+        flexDirection: "row",
+        marginVertical: 10,
+    },
+
+    bioContainer: {
+
+    },
+
+    bioTitle: {
+        marginVertical: 7,
+        color: "#FFFFFF",
+        opacity: 0.8,
+        fontSize: 15,
+    },
+
+    bioContent: {
+        color: "#FFFFFF",
+        opacity: 0.8,
     },
 
     profileText: {
+        width: "50%",
         color: "#FFFFFF",
-        opacity: 0.8
+        opacity: 0.8,
+    },
+    profileItem: {
+        width: "50%",
+        color: "#FFFFFF",
+        opacity: 0.8,
     },
 
     logoutButton: {

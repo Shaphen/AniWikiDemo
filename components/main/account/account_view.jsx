@@ -1,7 +1,6 @@
 import { View, Text, Image, Pressable } from "react-native";
 import styles from './account_view_style';
 import userData from '../../assets/mock/mock_user_data.json';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const AccountView = () => {
     return(
@@ -13,13 +12,34 @@ const AccountView = () => {
             <View style={ styles.profileLine }></View>
 
             <View style={ styles.profileContent }>
-                <Text style={ styles.profileText }>Username: {userData.username}</Text>
-                <Text style={ styles.profileText }>First Name: {userData.firstName}</Text>
-                <Text style={ styles.profileText }>Last Name: {userData.lastName}</Text>
-                <Text style={ styles.profileText }>Bio: {userData.bio}</Text>
-                <Text style={ styles.profileText }>Email: {userData.email}</Text>
-                <Text style={ styles.profileText }>Phone Number: {userData.phone}</Text>
-                <Text style={ styles.profileText }>Favorite Anime: {userData.favoriteAnime}</Text>
+                <View style={ styles.nameContainer }>
+                    <Text style={ styles.profileItem }>Username: </Text>
+                    <Text style={ styles.profileText }>{ userData.username }</Text>
+                </View>
+                <View style={ styles.nameContainer }>
+                    <Text style={ styles.profileItem }>First Name: </Text>
+                    <Text style={ styles.profileText }>{ userData.firstName }</Text>
+                </View>
+                <View style={ styles.nameContainer }>
+                    <Text style={ styles.profileItem }>Last Name: </Text>
+                    <Text style={ styles.profileText }>{ userData.lastName }</Text>
+                </View>
+                <View style={ styles.nameContainer }>
+                    <Text style={ styles.profileItem }>Email: </Text>
+                    <Text style={ styles.profileText }>{ userData.email }</Text>
+                </View>
+                <View style={ styles.nameContainer }>
+                    <Text style={ styles.profileItem }>Phone Number: </Text>
+                    <Text style={ styles.profileText }>{userData.phone}</Text>
+                </View>
+                <View style={ styles.nameContainer }>
+                    <Text style={ styles.profileItem }>Favorite Anime: </Text>
+                    <Text style={ styles.profileText }>{userData.favoriteAnime}</Text>
+                </View>
+                <View style={ styles.bioContainer }>
+                    <Text style={ styles.bioTitle }>Bio </Text>
+                    <Text style={ styles.bioContent }>{ userData.bio }</Text>
+                </View>
             </View>
 
             <Pressable 
