@@ -1,6 +1,7 @@
 import { View, Text, Image, Pressable } from "react-native";
 import styles from './account_view_style';
 import userData from '../../assets/mock/mock_user_data.json';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const AccountView = () => {
     return(
