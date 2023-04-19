@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
     },
 
     bioTitle: {
+        fontWeight: 500,
         marginVertical: 7,
         color: "#FFFFFF",
         opacity: 0.8,
@@ -73,6 +74,7 @@ const styles = StyleSheet.create({
         opacity: 0.8,
     },
     profileItem: {
+        fontWeight: 500,
         width: "50%",
         color: "#FFFFFF",
         opacity: 0.8,
