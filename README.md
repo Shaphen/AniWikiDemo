@@ -1,5 +1,5 @@
 ## AniWiki
-Experimental React Native Mobile App for Weeebs
+Experimental React Native Mobile App for sharing previous, current, and upcoming anime.
 
 ### Running App Locally
 - Navigate to base directory
